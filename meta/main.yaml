@@ -1,0 +1,17 @@
+galaxy_info:
+  author: Thomas Daley
+  description: Common diesel-net vars
+
+  min_ansible_version: 2.8
+  platforms:
+    - name: Ubuntu
+      versions:
+        - 18.04
+
+  galaxy_tags:
+    - ubuntu
+    - common
+    - diesel-net
+
+
+dependencies: []

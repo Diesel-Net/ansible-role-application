@@ -5,8 +5,4 @@
   loop_control:
     loop_var: directory
   loop:
-    - '{{ app_dir }}'
     - '{{ config_dir }}'
-    - '{{ data_dir }}'
-    - '{{ docker_dir }}'
-

@@ -1,0 +1,13 @@
+- name: Make directories
+  file: 
+    path: '{{ directory }}'
+    state: directory
+    recurse: yes
+  loop_control:
+    loop_var: directory
+  loop:
+    - '{{ app_dir }}'
+    - '{{ config_dir }}'
+    - '{{ data_dir }}'
+    - '{{ docker_dir }}'
+

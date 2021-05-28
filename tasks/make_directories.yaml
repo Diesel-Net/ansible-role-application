@@ -1,8 +1,7 @@
-- name: Make directories
+- name: Ensure directories exists
   file: 
     path: '{{ directory }}'
     state: directory
-    recurse: yes
   loop_control:
     loop_var: directory
   loop:

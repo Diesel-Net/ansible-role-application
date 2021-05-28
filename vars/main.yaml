@@ -9,6 +9,6 @@ ssl_cert_filename: '{{ lookup("env", "SSL_CERT_FILENAME") if lookup("env", "SSL_
 
 home_dir: '{{ ansible_env.HOME }}'
 app_dir: '{{ home_dir }}/.diesel/{{ git_repository }}/{{ git_branch }}'
-config_dir: '{{ app_dir/config'
+config_dir: '{{ app_dir }}/config'
 data_dir: '{{ app_dir }}/data'
 docker_dir: '{{ app_dir }}/docker'

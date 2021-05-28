@@ -1,0 +1,8 @@
+- name: Ensure directories exists
+  file: 
+    path: '{{ directory }}'
+    state: directory
+  loop_control:
+    loop_var: directory
+  loop:
+    - '{{ app_dir }}'

@@ -12,3 +12,6 @@ app_dir: '{{ home_dir }}/.diesel/{{ git_repository }}/{{ git_branch }}'
 config_dir: '{{ app_dir }}/config'
 data_dir: '{{ app_dir }}/data'
 docker_dir: '{{ app_dir }}/docker'
+
+uid: 1001
+gid: 1001

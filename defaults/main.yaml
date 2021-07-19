@@ -4,7 +4,7 @@ git_tag: '{{ lookup("env", "DRONE_TAG") }}'
 git_branch: '{{ "production" if git_tag else (lookup("env", "DRONE_BRANCH") if lookup("env", "DRONE_BRANCH") else "git_branch") }}'
 git_version: '{{ git_tag if git_tag else git_branch }}'
 
-ssl_cert_dir: '{{ lookup("env", "SSL_CERT_DIR") if lookup("env", "SSL_CERT_DIR") else "/etc/ssl/certs/" }}'
+ssl_cert_dir: '{{ lookup("env", "SSL_CERT_DIR") if lookup("env", "SSL_CERT_DIR") else "/etc/ssl/certs" }}'
 ssl_cert_filename: '{{ lookup("env", "SSL_CERT_FILENAME") if lookup("env", "SSL_CERT_FILENAME") else "ca-certificates.crt" }}'
 
 home_dir: '{{ ansible_env.HOME }}'

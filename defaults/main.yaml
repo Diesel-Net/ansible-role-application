@@ -1,17 +1,15 @@
-git_owner: '{{ lookup("env", "DRONE_REPO_NAMESPACE") if lookup("env", "DRONE_REPO_NAMESPACE") else "git_owner" }}'
-git_repository: '{{ lookup("env", "DRONE_REPO_NAME") if lookup("env", "DRONE_REPO_NAME") else "git_repository" }}'
-git_tag: '{{ lookup("env", "DRONE_TAG") }}'
-git_branch: '{{ "production" if git_tag else (lookup("env", "DRONE_BRANCH") if lookup("env", "DRONE_BRANCH") else "git_branch") }}'
-git_version: '{{ git_tag if git_tag else git_branch }}'
+uid: 1001 # automation
+gid: 1001 # automation
 
 ssl_cert_dir: '{{ lookup("env", "SSL_CERT_DIR") if lookup("env", "SSL_CERT_DIR") else "/etc/ssl/certs" }}'
 ssl_cert_filename: '{{ lookup("env", "SSL_CERT_FILENAME") if lookup("env", "SSL_CERT_FILENAME") else "ca-certificates.crt" }}'
 
 home_dir: '{{ ansible_env.HOME }}'
-app_dir: '{{ home_dir }}/.diesel/{{ git_repository }}/{{ git_branch }}'
+app_dir: '{{ home_dir }}/.diesel/{{ repository }}/{{ version }}'
 config_dir: '{{ app_dir }}/config'
 data_dir: '{{ app_dir }}/data'
 docker_dir: '{{ app_dir }}/docker'
 
-uid: 1001
-gid: 1001
+# override these ones!
+version: '{{ git_version }}'
+repository: '{{ git_repository }}'

@@ -11,5 +11,5 @@ data_dir: '{{ app_dir }}/data'
 docker_dir: '{{ app_dir }}/docker'
 
 # override these ones!
-version: '{{ git_version }}'
+version: '{{ "production" if git_tag else git_branch }}'
 repository: '{{ git_repository }}'

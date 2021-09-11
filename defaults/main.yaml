@@ -1,8 +1,5 @@
-uid: 1001 # automation
-gid: 1001 # automation
-
-ssl_cert_dir: '{{ lookup("env", "SSL_CERT_DIR") if lookup("env", "SSL_CERT_DIR") else "/etc/ssl/certs" }}'
-ssl_cert_filename: '{{ lookup("env", "SSL_CERT_FILENAME") if lookup("env", "SSL_CERT_FILENAME") else "ca-certificates.crt" }}'
+localtime_file: '{{ lookup("env", "LOCALTIME_FILE") if lookup("env", "LOCALTIME_FILE") else "/etc/localtime" }}'
+ssl_cert_file: '{{ lookup("env", "SSL_CERT_FILE") if lookup("env", "SSL_CERT_FILE") else "/etc/ssl/certs/ca-certificates.crt" }}'
 
 home_dir: '{{ ansible_env.HOME }}'
 app_dir: '{{ home_dir }}/.diesel/{{ repository }}/{{ version }}'
@@ -10,6 +7,5 @@ config_dir: '{{ app_dir }}/config'
 data_dir: '{{ app_dir }}/data'
 docker_dir: '{{ app_dir }}/docker'
 
-# override these ones!
-version: '{{ "production" if git_tag else git_branch }}'
-repository: '{{ git_repository }}'
+version: '{{ version_fallback if not ("production" if git_tag else git_branch) else ("production" if git_tag else git_branch) }}'
+repository: '{{ repository_fallback if not git_repository else git_repository }}'

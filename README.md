@@ -1,2 +1,2 @@
 # ansible-role-common
-Diesel-Net common predefined and dynamic variables
+Diesel-Net common predefined and dynamic variables.

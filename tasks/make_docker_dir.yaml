@@ -1,8 +1,0 @@
-- name: Ensure directories exists
-  file: 
-    path: '{{ directory }}'
-    state: directory
-  loop_control:
-    loop_var: directory
-  loop:
-    - '{{ docker_dir }}'

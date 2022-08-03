@@ -1,2 +1,2 @@
-# ansible-role-common
-Diesel-Net common predefined and dynamic variables.
+# ansible-role-application
+Common application deployment tasks and dynamic variables.

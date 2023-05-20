@@ -13,4 +13,4 @@ version_fallback: '{{ inventory_dir | basename }}'
 
 # go up some dirs and use the top-level directory name as a fallback
 # https://docs.ansible.com/ansible/latest/reference_appendices/special_variables.html
-repsitory_fallback: '{{ (playbook_dir | dirname | basename) if (playbook_dir | basename == ".ansible") else (playbook_dir | basename) }}'
+app_name_fallback: '{{ (playbook_dir | dirname | basename) if (playbook_dir | basename == ".ansible") else (playbook_dir | basename) }}'

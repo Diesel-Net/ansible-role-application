@@ -9,4 +9,4 @@ version: '{{ version_fallback if inventory_file | basename | split(".") | first 
 
 # attempts to use env var $DRONE_REPO_NAME, if set.
 # https://docs.drone.io/pipeline/environment/reference/drone-repo-name/
-app_name: '{{ repository_fallback if not git_repository else git_repository }}'
+app_name: '{{ app_name_fallback if not git_repository else git_repository }}'

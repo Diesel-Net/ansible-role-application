@@ -2,7 +2,7 @@ galaxy_info:
   author: Thomas Daley
   description: Common application deployment tasks and dynamic variables
 
-  min_ansible_version: 2.11
+  min_ansible_version: 2.14
   platforms:
     - name: Ubuntu
       versions:

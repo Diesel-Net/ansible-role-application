@@ -1,7 +1,7 @@
 # these are in the vars/ folder to maintain higher variable precedence
 
 git_owner: '{{ lookup("env", "DRONE_REPO_NAMESPACE") }}'
-git_app_name: '{{ lookup("env", "DRONE_REPO_NAME") }}'
+git_repository: '{{ lookup("env", "DRONE_REPO_NAME") }}'
 git_tag: '{{ lookup("env", "DRONE_TAG") }}'
 git_branch: '{{ lookup("env", "DRONE_BRANCH") }}'
 git_commit: '{{ lookup("env", "DRONE_COMMIT") }}'
@@ -13,4 +13,4 @@ version_fallback: '{{ inventory_dir | basename }}'
 
 # go up some dirs and use the top-level directory name as a fallback
 # https://docs.ansible.com/ansible/latest/reference_appendices/special_variables.html
-app_name_fallback: '{{ (playbook_dir | dirname | basename) if (playbook_dir | basename == ".ansible") else (playbook_dir | basename) }}'
+repsitory_fallback: '{{ (playbook_dir | dirname | basename) if (playbook_dir | basename == ".ansible") else (playbook_dir | basename) }}'

@@ -1,12 +1,5 @@
-home_dir: '{{ ansible_env.HOME }}'
-app_dir: '{{ home_dir }}/applications/{{ app_name }}/{{ version }}'
-config_dir: '{{ app_dir }}/config'
-data_dir: '{{ app_dir }}/data'
-
-# attempts to use the name of the inventory file (not full path) without the .yaml suffix
-# https://docs.ansible.com/ansible/latest/reference_appendices/special_variables.html
+# attempts to use the name of the inventory file (not full path) without the .yaml suffix, otherwise inventory dirname is used as fallback
 version: '{{ version_fallback if inventory_file | basename | split(".") | first == "hosts" else inventory_file | basename | split(".") | first }}'
 
-# attempts to use env var $DRONE_REPO_NAME, if set.
-# https://docs.drone.io/pipeline/environment/reference/drone-repo-name/
+# attempts to use env var $DRONE_REPO_NAME, if set, otherwise parent directory name is used as fallback
 app_name: '{{ app_name_fallback if not git_repository else git_repository }}'
